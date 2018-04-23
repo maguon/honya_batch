@@ -49,8 +49,11 @@ const initStorageStat =(callback)=>{
         callback(err,result)
     })
 }
-
+const initTransStat =(callback)=>{
+    dateDao.initTransStat((err,result)=>{
+        callback(err,result)
+    })
+}
 module.exports = {
-    saveStatDate : saveStatDate ,
-    initStorageStat : initStorageStat
+    saveStatDate ,initStorageStat ,initTransStat
 }

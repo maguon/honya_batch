@@ -50,6 +50,17 @@ try{
                 }
             }
         })
+        dateBl.initTransStat((err,result)=>{
+            if(err){
+                logger.error('create new ship trans stat error:'+err.stack);
+            }else{
+                if(result && result.affectedRows){
+                    logger.info('create new trans stat success');
+                }else{
+                    logger.info('create new trans stat false');
+                }
+            }
+        })
     },startSched);
 }catch(err){
     logger.error(err.stack);

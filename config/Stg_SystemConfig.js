@@ -1,10 +1,10 @@
 
 
 const mysqlConnectOptions ={
-    user: 'log',
-    password: 'log_base',
-    database:'log_base',
-    host: '127.0.0.1' ,
+    user: 'honya',
+    password: 'honya_base',
+    database:'honya_base',
+    host: '47.93.121.1' ,
     charset : 'utf8mb4',
     //,dateStrings : 'DATETIME'
 };
@@ -12,15 +12,21 @@ const mysqlConnectOptions ={
 
 const logLevel = 'DEBUG';
 const loggerConfig = {
-    appenders: [
-        { type: 'console' },
-        {
-            "type": "file",
-            "filename": "../stage/log_batch.html",
-            "maxLogSize": 2048000,
-            "backups": 10
+    appenders: {
+        devLogger: {
+            "type": "datefile",
+            "filename": 'debug.log',
+            "path": './log',
+            "alwaysIncludePattern": true,
+            "pattern": "-yyyy-MM-dd.log"
         }
-    ]
+    },
+    categories: {
+        default: {
+            appenders: ["devLogger"],
+            level: "DEBUG"
+        },
+    }
 }
 
 
