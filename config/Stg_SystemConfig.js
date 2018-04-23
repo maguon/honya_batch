@@ -14,7 +14,7 @@ const logLevel = 'DEBUG';
 const loggerConfig = {
     appenders: {
         devLogger: {
-            "type": "datefile",
+            "type": "dateFile",
             "filename": 'debug.log',
             "path": './log',
             "alwaysIncludePattern": true,
