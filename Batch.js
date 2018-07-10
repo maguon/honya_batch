@@ -61,6 +61,28 @@ try{
                 }
             }
         })
+        dateBl.initLoanInStat((err,result)=>{
+            if(err){
+                logger.error('create new loan in stat error:'+err.stack);
+            }else{
+                if(result && result.affectedRows){
+                    logger.info('create new loan in stat success');
+                }else{
+                    logger.info('create new loan in stat false');
+                }
+            }
+        })
+        dateBl.initLoanOutStat((err,result)=>{
+            if(err){
+                logger.error('create new loan out stat error:'+err.stack);
+            }else{
+                if(result && result.affectedRows){
+                    logger.info('create new loan out  stat success');
+                }else{
+                    logger.info('create new loan out  stat false');
+                }
+            }
+        })
     },startSched);
 }catch(err){
     logger.error(err.stack);

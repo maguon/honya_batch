@@ -57,4 +57,21 @@ const initTransStat = (callback)=>{
         callback(error,result)
     });
 }
-module.exports = {queryDate , createDate,initStorageStat ,initTransStat}
+
+const initLoanInStat = (callback)=>{
+    const query="insert into loan_into_stat_date (date_id,loan_into_count,loan_into_money,repayment_count,repayment_money)  values" +
+        "  ( DATE_FORMAT(CURRENT_DATE(),'%Y%m%d') , 0 ,0 ,0 ,0) " ;
+    db.dbQuery(query,[],(error,result)=>{
+        logger.debug(' initLoanInStat ')
+        callback(error,result)
+    });
+}
+const initLoanOutStat = (callback)=>{
+    const query="insert into loan_stat_date (date_id,loan_count,loan_money,repayment_count,repayment_money)  values" +
+        "  ( DATE_FORMAT(CURRENT_DATE(),'%Y%m%d') , 0 ,0 ,0 ,0) " ;
+    db.dbQuery(query,[],(error,result)=>{
+        logger.debug(' initLoanOutStat ')
+        callback(error,result)
+    });
+}
+module.exports = {queryDate , createDate,initStorageStat ,initTransStat ,initLoanInStat ,initLoanOutStat}

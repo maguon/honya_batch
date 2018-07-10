@@ -54,6 +54,18 @@ const initTransStat =(callback)=>{
         callback(err,result)
     })
 }
+
+const initLoanInStat =(callback)=>{
+    dateDao.initLoanInStat((err,result)=>{
+        callback(err,result)
+    })
+}
+
+const initLoanOutStat =(callback)=>{
+    dateDao.initLoanOutStat((err,result)=>{
+        callback(err,result)
+    })
+}
 module.exports = {
-    saveStatDate ,initStorageStat ,initTransStat
+    saveStatDate ,initStorageStat ,initTransStat ,initLoanInStat ,initLoanOutStat
 }
